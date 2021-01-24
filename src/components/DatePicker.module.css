@@ -16,8 +16,8 @@
     text-decoration: none;
     cursor: pointer;
     border-radius: 5px;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     color: white;
     font-size: 20px;
     font-weight: bold;
@@ -78,10 +78,12 @@
 .dayLabel {
     font-size: 12px;
     margin: 4px 0 0 0;
-    z-index: 2
+    z-index: 2;
+    color: #f3f3f3;
 }
 
 .dateLabel {
     font-size: 18px;
-    z-index: 2
+    z-index: 2;
+    color: #f3f3f3;
 }
