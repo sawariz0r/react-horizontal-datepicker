@@ -20,10 +20,11 @@ export default function DatePicker({
     fontWeight: "bold",
     width: "45px",
     height: "45px",
-    border: `2px solid ${primaryColor}`,
+    borderRadius: "5px",
+    zIndex: 0,
     background: primaryColor,
-    color: primaryColor,
-    zIndex: 0
+    border: `2px solid ${primaryColor}`,
+    color: primaryColor
   };
   const buttonColor = {
     background: primaryColor
@@ -157,6 +158,3 @@ export default function DatePicker({
     onClick: nextWeek
   }, "\u2192")));
 }
-/*more pictures
-* example code sandbox
-* update readme*/

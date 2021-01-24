@@ -1,10 +1,10 @@
 {
   "name": "react-horizontal-datepicker",
   "version": "2.0.3",
-  "homepage": "https://github.com/kush-agra/react-horizontal-datepicker",
+  "homepage": "https://github.com/sawariz0r/react-horizontal-datepicker",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kush-agra/react-horizontal-datepicker.git"
+    "url": "https://github.com/sawariz0r/react-horizontal-datepicker.git"
   },
   "keywords": [
     "date-picker",
