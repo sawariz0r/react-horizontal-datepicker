@@ -7,9 +7,10 @@ export default function DatePicker({
   selectDate,
   getSelectedDay,
   color,
-  labelFormat
+  labelFormat,
+  selectedDate,
+  setSelectedDate
 }) {
-  const [selectedDate, setSelectedDate] = useState(selectDate || new Date());
   const firstSection = {
     marginLeft: '40px'
   };

@@ -11,8 +11,7 @@ import {
     startOfMonth
 } from "date-fns";
 
-export default function DatePicker({endDate, selectDate, getSelectedDay, color, labelFormat}) {
-    const [selectedDate, setSelectedDate] = useState(selectDate || new Date());
+export default function DatePicker({endDate, selectDate, getSelectedDay, color, labelFormat, selectedDate, setSelectedDate }) {
     const firstSection = {marginLeft: '40px'};
     const startDate = selectDate || new Date();
     const lastDate = addDays(startDate, endDate || 90);
