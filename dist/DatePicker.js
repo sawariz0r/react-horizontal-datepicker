@@ -18,13 +18,13 @@ export default function DatePicker({
   const primaryColor = color || 'rgb(54, 105, 238)';
   const selectedStyle = {
     fontWeight: "bold",
-    width: "45px",
-    height: "45px",
+    width: "48px",
+    height: "48px",
     borderRadius: "5px",
     zIndex: 0,
     background: primaryColor,
     border: `2px solid ${primaryColor}`,
-    color: primaryColor
+    color: "#f3f3f3"
   };
   const buttonColor = {
     background: primaryColor
