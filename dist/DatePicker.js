@@ -18,6 +18,7 @@ export default function DatePicker({
   const primaryColor = color || 'rgb(54, 105, 238)';
   const selectedStyle = {
     fontWeight: "bold",
+    justifyContent: "center",
     width: "48px",
     height: "48px",
     borderRadius: "5px",
