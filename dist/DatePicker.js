@@ -20,9 +20,10 @@ export default function DatePicker({
     fontWeight: "bold",
     width: "45px",
     height: "45px",
-    borderRadius: "50%",
     border: `2px solid ${primaryColor}`,
-    color: primaryColor
+    background: primaryColor,
+    color: primaryColor,
+    zIndex: 0
   };
   const buttonColor = {
     background: primaryColor
