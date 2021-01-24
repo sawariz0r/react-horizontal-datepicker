@@ -9,11 +9,11 @@ export default function DatePicker({
   color,
   labelFormat
 }) {
-  const [selectedDate, setSelectedDate] = useState(selectDate || new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date());
   const firstSection = {
     marginLeft: '40px'
   };
-  const startDate = selectDate || new Date();
+  const startDate = new Date();
   const lastDate = addDays(startDate, endDate || 90);
   const primaryColor = color || 'rgb(54, 105, 238)';
   const selectedStyle = {

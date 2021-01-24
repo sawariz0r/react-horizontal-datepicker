@@ -12,9 +12,9 @@ import {
 } from "date-fns";
 
 export default function DatePicker({endDate, selectDate, getSelectedDay, color, labelFormat}) {
-    const [selectedDate, setSelectedDate] = useState(selectDate || new Date());
+    const [selectedDate, setSelectedDate] = useState(new Date());
     const firstSection = {marginLeft: '40px'};
-    const startDate = selectDate || new Date();
+    const startDate = new Date();
     const lastDate = addDays(startDate, endDate || 90);
     const primaryColor = color || 'rgb(54, 105, 238)';
     const selectedStyle = {fontWeight:"bold",justifyContent:"center",width:"48px",height:"48px",borderRadius:"5px",zIndex: 0, background: primaryColor ,border:`2px solid ${primaryColor}`,color:"#f3f3f3"};
