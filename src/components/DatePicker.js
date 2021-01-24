@@ -89,8 +89,6 @@ export default function DatePicker({endDate, selectDate, getSelectedDay, color, 
         if (getSelectedDay) {
             if (selectDate) {
                 getSelectedDay(selectDate);
-            } else {
-                getSelectedDay(startDate);
             }
         }
     }, []);
