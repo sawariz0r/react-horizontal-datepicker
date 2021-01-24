@@ -7,10 +7,9 @@ export default function DatePicker({
   selectDate,
   getSelectedDay,
   color,
-  labelFormat,
-  selectedDate,
-  setSelectedDate
+  labelFormat
 }) {
+  const [selectedDate, setSelectedDate] = useState(selectDate || new Date());
   const firstSection = {
     marginLeft: '40px'
   };
@@ -104,6 +103,15 @@ export default function DatePicker({
     }
   };
 
+  useEffect(() => {
+    if (getSelectedDay) {
+      if (selectDate) {
+        getSelectedDay(selectDate);
+      } else {
+        getSelectedDay(startDate);
+      }
+    }
+  }, []);
   useEffect(() => {
     if (selectDate) {
       if (!isSameDay(selectedDate, selectDate)) {
