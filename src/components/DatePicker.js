@@ -86,16 +86,6 @@ export default function DatePicker({endDate, selectDate, getSelectedDay, color, 
     };
 
     useEffect(() => {
-        if (getSelectedDay) {
-            if (selectDate) {
-                getSelectedDay(selectDate);
-            } else {
-                getSelectedDay(startDate);
-            }
-        }
-    }, []);
-
-    useEffect(() => {
         if (selectDate) {
             if (!isSameDay(selectedDate, selectDate)) {
                 setSelectedDate(selectDate);
