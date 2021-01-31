@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import styles from "./DatePicker.module.css";
-import { addDays, addMonths, differenceInMonths, format, isSameDay, lastDayOfMonth, startOfMonth } from "date-fns";
+import { addDays, addMonths, differenceInMonths, format, isSameDay, lastDayOfMonth, startOfMonth, subDays } from "date-fns";
 export default function DatePicker({
   endDate,
   selectDate,
@@ -13,7 +13,7 @@ export default function DatePicker({
   const firstSection = {
     marginLeft: '40px'
   };
-  const startDate = new Date();
+  const startDate = subDays(new Date(), 3);
   const lastDate = addDays(startDate, endDate || 90);
   const primaryColor = color || 'rgb(54, 105, 238)';
   const selectedStyle = {
