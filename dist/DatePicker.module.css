@@ -93,9 +93,7 @@
     z-index: 4;
     position: absolute;
     width: 100%;
-    bottom: 1px;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 0;
     height: 6px;
 
     display: flex;
@@ -104,8 +102,7 @@
 
 .sessionDot {
     width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: red;
+    height: 3px;
+    border-radius: 1px;
     margin: 0 1px;
 }

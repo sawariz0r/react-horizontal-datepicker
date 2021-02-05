@@ -41,7 +41,8 @@ export default function DatePicker({
 
   const getStyles = (day) => {
     if (
-      sessionDates.length > 0 && !sessionDates
+      sessionDates.length > 0 &&
+      !sessionDates
         .map((x) => {
           return x.date;
         })
@@ -94,14 +95,20 @@ export default function DatePicker({
             <div className={styles.sessionDots}>
               {sessionDates
                 .filter((x) => {
-                  return isSameDay(x.date, addDays(month, j))
+                  return isSameDay(x.date, addDays(month, j));
                 })
                 .flatMap((x) => {
                   return x.dots;
                 })
-                .map((x) => (
-                  <div className={styles.sessionDot} style={{ background: x }}></div>
-                ))}
+                .map((x, i) => {
+                  if (i < 3)
+                    return (
+                      <div
+                        className={styles.sessionDot}
+                        style={{ background: x }}
+                      ></div>
+                    );
+                })}
             </div>
           </div>
         );
@@ -129,13 +136,16 @@ export default function DatePicker({
   }
 
   const onDateClick = (day) => {
-    if ( onlyValidDays && !sessionDates
+    if (
+      onlyValidDays &&
+      !sessionDates
         .map((x) => {
           return x.date;
         })
-        .find((x) => isSameDay(x, day))) {
-            return 
-        }
+        .find((x) => isSameDay(x, day))
+    ) {
+      return;
+    }
     setSelectedDate(day);
     if (getSelectedDay) {
       getSelectedDay(day);

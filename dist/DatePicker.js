@@ -91,12 +91,14 @@ export default function DatePicker({
           return isSameDay(x.date, addDays(month, j));
         }).flatMap(x => {
           return x.dots;
-        }).map(x => /*#__PURE__*/React.createElement("div", {
-          className: styles.sessionDot,
-          style: {
-            background: x
-          }
-        })))));
+        }).map((x, i) => {
+          if (i < 3) return /*#__PURE__*/React.createElement("div", {
+            className: styles.sessionDot,
+            style: {
+              background: x
+            }
+          });
+        }))));
       }
 
       months.push( /*#__PURE__*/React.createElement("div", {
