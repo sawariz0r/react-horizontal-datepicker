@@ -7,24 +7,30 @@ export default function DatePicker({
   selectDate,
   getSelectedDay,
   color,
-  labelFormat
+  labelFormat,
+  onlyValidDays = false,
+  sessionDates = [{
+    date: new Date(),
+    dots: ["pink", "purple"]
+  }]
 }) {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const firstSection = {
-    marginLeft: '40px'
+    marginLeft: "40px"
   };
   const startDate = subDays(new Date(), 3);
   const lastDate = addDays(startDate, endDate || 90);
-  const primaryColor = color || 'rgb(54, 105, 238)';
+  const primaryColor = color || "rgb(54, 105, 238)";
+  const disabledStyle = {
+    opacity: 0.2
+  };
   const selectedStyle = {
     fontWeight: "bold",
-    justifyContent: "center",
     width: "48px",
     height: "48px",
     borderRadius: "5px",
     zIndex: 0,
     background: primaryColor,
-    border: `2px solid ${primaryColor}`,
     color: "#f3f3f3"
   };
   const buttonColor = {
@@ -35,6 +41,12 @@ export default function DatePicker({
   };
 
   const getStyles = day => {
+    if (sessionDates.length > 0 && !sessionDates.map(x => {
+      return x.date;
+    }).find(x => isSameDay(x, day))) {
+      return disabledStyle;
+    }
+
     if (isSameDay(day, selectedDate)) {
       return selectedStyle;
     }
@@ -44,7 +56,7 @@ export default function DatePicker({
 
   const getId = day => {
     if (isSameDay(day, selectedDate)) {
-      return 'selected';
+      return "selected";
     } else {
       return "";
     }
@@ -73,7 +85,18 @@ export default function DatePicker({
           className: styles.dayLabel
         }, format(addDays(month, j), dayFormat)), /*#__PURE__*/React.createElement("div", {
           className: styles.dateLabel
-        }, format(addDays(month, j), dateFormat))));
+        }, format(addDays(month, j), dateFormat)), /*#__PURE__*/React.createElement("div", {
+          className: styles.sessionDots
+        }, sessionDates.filter(x => {
+          return isSameDay(x.date, addDays(month, j));
+        }).flatMap(x => {
+          return x.dots;
+        }).map(x => /*#__PURE__*/React.createElement("div", {
+          className: styles.sessionDot,
+          style: {
+            background: x
+          }
+        })))));
       }
 
       months.push( /*#__PURE__*/React.createElement("div", {
@@ -96,6 +119,12 @@ export default function DatePicker({
   }
 
   const onDateClick = day => {
+    if (onlyValidDays && !sessionDates.map(x => {
+      return x.date;
+    }).find(x => isSameDay(x, day))) {
+      return;
+    }
+
     setSelectedDate(day);
 
     if (getSelectedDay) {
@@ -117,7 +146,7 @@ export default function DatePicker({
       if (!isSameDay(selectedDate, selectDate)) {
         setSelectedDate(selectDate);
         setTimeout(() => {
-          let view = document.getElementById('selected');
+          let view = document.getElementById("selected");
 
           if (view) {
             view.scrollIntoView({
@@ -132,13 +161,13 @@ export default function DatePicker({
   }, [selectDate]);
 
   const nextWeek = () => {
-    const e = document.getElementById('container');
+    const e = document.getElementById("container");
     const width = e ? e.getBoundingClientRect().width : null;
     e.scrollLeft += width - 60;
   };
 
   const prevWeek = () => {
-    const e = document.getElementById('container');
+    const e = document.getElementById("container");
     const width = e ? e.getBoundingClientRect().width : null;
     e.scrollLeft -= width - 60;
   };
